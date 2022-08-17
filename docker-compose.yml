@@ -42,3 +42,15 @@ services:
       MYSQL_ROOT_PASSWORD: Timini
     depends_on:
       - db
+  caddy:
+    image: caddy:2.5.2
+    ports:
+      - 80:80
+      - 443:443
+      - 8000:8000
+    volumes:
+      - caddy:/data
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/static:/home/user/static_files
+volumes:
+  caddy:
