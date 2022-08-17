@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  backend:
+    env_file:
+      - fastapi/.env
+    build:
+      context: ./fastapi
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - 8000:80
+    volumes:
+      - .:/app
+  db:
+    image: mysql:8.0.26
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: timini
+      MYSQL_USER: bucky
+      MYSQL_PASSWORD: timini
+      MYSQL_ROOT_PASSWORD: timini
+    volumes:
+      - fastapi/.dbdata:/var/lib/mysql
+    ports:
+      - 33069:3306
+    cap_add:
+      - SYS_NICE
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: on-failure
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: Timini
+    depends_on:
+      - db
