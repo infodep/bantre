@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "timini-FastAPI"
+version = "0.1.0"
+description = "This is the Python development environment package for the Bantre project"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+wheel = "^0.37.1"
+fastapi = "0.70"
+pydantic = "1.8.2"
+uvicorn = "0.15"
+python-multipart = "^0.0.5"
+passlib = "1.7.4"
+mysqlclient = "2.1"
+cryptography = "^37.0.4"
+python-jose = "3.3.0"
+SQLAlchemy = "1.4.22"
+alembic = "1.7.5"
+python-dotenv = "^0.20.0"
+sqlmodel = "^0.0.6"
+pytest = "^7.1.2"
+requests = "^2.28.1"
+black = "^22.6.0"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.20.0"
+mypy = "^0.971"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

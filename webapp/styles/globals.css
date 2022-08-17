@@ -1,0 +1,16 @@
+/*--- Tailwind CSS ---*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*--- Custom CSS (minimalize if possible)---*/
+html,
+body {
+  font-family: -apple-system, Trebuchet MS, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1 {
+  color: #399ad5;
+  font-family: -apple-system, ff-kava-web-pro, Yanone Kaffeesatz, sans-serif;
+}

@@ -1,0 +1,21 @@
+[flake8]
+max-line-length = 120
+
+# Ignore the following rules in order: too long line, Whitespace before ':',
+#   linebreak before binary operator, Comparison to true should be 'if cond is true:' or 'if cond:',
+#   Module imported but unused (to be removed from ignores when early dev-phase is over)
+ignore = E501, E203, W503, E712, F401
+per-file-ignores = __init__.py:F401
+exclude =
+    .git
+    __pycache__
+    setup.py
+    build
+    dist
+    releases
+    .venv
+    .tox
+    .mypy_cache
+    .pytest_cache
+    .vscode
+    .github
