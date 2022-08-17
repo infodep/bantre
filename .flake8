@@ -1,4 +1,7 @@
 [flake8]
+# note:
+#   To make flake ignore certain lines of code, use
+#   noqa: errorcode
 max-line-length = 120
 
 # Ignore the following rules in order: too long line, Whitespace before ':',

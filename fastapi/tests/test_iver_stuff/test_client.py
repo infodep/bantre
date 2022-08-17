@@ -1,4 +1,4 @@
-from .conftest import client_fixture, TestClient
+from .conftest import TestClient, client_fixture
 
 
 def test_client(client: TestClient):
