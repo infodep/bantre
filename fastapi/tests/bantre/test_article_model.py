@@ -1,3 +1,5 @@
+import pytest
+
 from bantre.modules.article.article_model import Article
 from bantre.system.entity import Entity
 from bantre.system.section import Section
@@ -6,6 +8,7 @@ from bantre.system.user import User
 from .conftest import Session, client_fixture, session_fixture
 
 
+@pytest.mark.unit
 def test_article_orm(session: Session):
     post_user = User(username="bucky", email="ricky@bucky.com", password="timini")
     post_section = Section(

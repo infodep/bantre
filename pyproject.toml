@@ -28,6 +28,23 @@ black = "^22.6.0"
 pre-commit = "^2.20.0"
 mypy = "^0.971"
 
+[tool.pytest.ini_options]
+markers = "unit: unit test of server components"
+log_cli = "1"
+log_cli_level = "DEBUG"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.isort]
+profile = "black"
+force_single_line = "false"
+atomic = "true"
+lines_after_imports = "2"
+lines_between_types = "1"
+line_length = "88"
+known_third_party = "pytest"
+multi_line_output = "3"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

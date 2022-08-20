@@ -1,9 +1,12 @@
+import pytest
+
 from bantre.system.group import Group
 from bantre.system.user import User
 
 from .conftest import Session, client_fixture, session_fixture
 
 
+@pytest.mark.unit
 def test_group_orm(session: Session):
     # Create user and group using the orm
     post_user = User(username="bucky", email="ricky@bucky.com", password="timini")

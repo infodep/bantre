@@ -1,9 +1,12 @@
+import pytest
+
 from bantre.system.group import Group, GroupSectionLink
 from bantre.system.section import Section
 
 from .conftest import Session, client_fixture, session_fixture
 
 
+@pytest.mark.unit
 def test_section_orm(session: Session):
     post_group = Group(
         name="timinister",

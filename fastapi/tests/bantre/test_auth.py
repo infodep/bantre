@@ -1,3 +1,5 @@
+import pytest
+
 from sqlmodel import select
 
 from bantre.modules.article.article_model import Article
@@ -15,11 +17,13 @@ from .conftest import (
 )
 
 
+@pytest.mark.unit
 def test_admin_fixture(session: Session, admin_user: User):
     admin_user_in_db = get_user_by_username(session, admin_user_username)
     assert admin_user_in_db == admin_user
 
 
+@pytest.mark.unit
 def test_auth(session: Session, client: TestClient, admin_user: User):
     login_response = client.post(
         "/v1/auth/login",
