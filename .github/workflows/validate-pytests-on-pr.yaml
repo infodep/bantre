@@ -45,5 +45,5 @@ jobs:
         if: steps.cached-poetry-venv.outputs.cache-hit != 'true'
 
       - name: Test code using unit test
-        run: PYTHONPATH=${{ fastapi/matrix.function }} poetry run pytest fastapi/tests/${{ matrix.function }} -m "unit"
+        run: PYTHONPATH=${{ matrix.function }} poetry run pytest fastapi/tests/${{ matrix.function }} -m "unit"
         # This line ensures pytests are ran from the correct directories
