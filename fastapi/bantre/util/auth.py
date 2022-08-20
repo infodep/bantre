@@ -1,8 +1,6 @@
 from datetime import datetime, timedelta
 from typing import Optional, TypedDict
 
-from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
@@ -10,6 +8,8 @@ from sqlmodel import Session, select
 
 from bantre.system.user import User
 from bantre.util.config import get_settings
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
 
 from ..database import get_session
 

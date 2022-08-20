@@ -17,12 +17,12 @@ class UserConfigBase(SQLModel):
     enable_pay_by_card: int
 
 
-class UserConfig(UserConfigBase, table=True):
+class UserConfig(UserConfigBase, table=True):  # type: ignore
     uid: Optional[int] = Field(default=None, primary_key=True, foreign_key="user.id")
     user: Optional["User"] = Relationship(back_populates="config")
 
 
-class UserGroupLink(SQLModel, table=True):
+class UserGroupLink(SQLModel, table=True):  # type: ignore
     user_id: Optional[int] = Field(
         default=None, foreign_key="user.id", primary_key=True
     )
@@ -44,7 +44,7 @@ class UserBase(SQLModel):
     theme: Optional[str] = "light"
 
 
-class User(UserBase, table=True):
+class User(UserBase, table=True):  # type: ignore
     id: Optional[int] = Field(default=None, primary_key=True)
     password: str
     login_time: Optional[datetime] = Field(default=datetime.now())

@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from .user import User
 
 
-class GroupSectionLink(SQLModel, table=True):
+class GroupSectionLink(SQLModel, table=True):  # type: ignore
     group_id: Optional[int] = Field(
         default=None, foreign_key="group.id", primary_key=True
     )
@@ -31,7 +31,7 @@ class GroupBase(SQLModel):
     description: str
 
 
-class Group(GroupBase, table=True):
+class Group(GroupBase, table=True):  # type: ignore
     """This is an actual database table because it has table=True"""
 
     id: Optional[int] = Field(default=None, primary_key=True)

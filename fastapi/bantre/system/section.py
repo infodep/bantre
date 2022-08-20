@@ -15,7 +15,7 @@ class SectionBase(SQLModel):
     description: str
 
 
-class Section(SectionBase, table=True):
+class Section(SectionBase, table=True):  # type: ignore
     """This is an actual database table because it has table=True"""
 
     id: Optional[int] = Field(default=None, primary_key=True)
