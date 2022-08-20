@@ -9,8 +9,7 @@ jobs:
       matrix:
       # add your test suites by inserting name of folder containing tests here
         function:
-          - dummy
-          - test_iver_stuff
+          - bantre
     steps:
       - uses: actions/checkout@v2
 
@@ -46,4 +45,5 @@ jobs:
         if: steps.cached-poetry-venv.outputs.cache-hit != 'true'
 
       - name: Test code using unit tests
-        run: PYTHONPATH=${{ matrix.function }} poetry run pytest fastapi/tests/${{ matrix.function }} -m "unit"
+        # This line ensures pytests are ran from the correct directories
+        run: PYTHONPATH=${{ fastapi/matrix.function }} poetry run pytest fastapi/tests/${{ matrix.function }} -m "unit"

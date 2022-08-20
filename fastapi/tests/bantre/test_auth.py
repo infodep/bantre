@@ -1,7 +1,6 @@
 from sqlmodel import select
 
 from bantre.modules.article.article_model import Article
-from bantre.system.user import User
 from bantre.util.auth import get_user_by_username, verify_password
 
 from .conftest import (
