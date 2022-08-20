@@ -1,7 +1,9 @@
-import subprocess
-from watchfiles import awatch
-import pathlib
 import asyncio
+import pathlib
+import subprocess
+
+from watchfiles import awatch
+
 
 curr_path = pathlib.Path(__file__).parent.absolute().__str__()
 

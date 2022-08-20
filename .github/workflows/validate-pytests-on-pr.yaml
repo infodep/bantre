@@ -37,7 +37,7 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/validate-pytests-on-pr.yaml') }}
-        
+
       - name: Move to correct module
         run: cd fastapi
 
