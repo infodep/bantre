@@ -9,8 +9,8 @@ def get_settings():
 
 
 class Settings(BaseSettings):
-    access_token_key: str
-    refresh_token_key: str
+    access_token_key: str = ""
+    refresh_token_key: str = ""
     jwt_algorithm: str = "HS256"
     access_token_lifetime: int = 30
 
