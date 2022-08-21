@@ -23,6 +23,7 @@ sqlmodel = "^0.0.6"
 pytest = "^7.1.2"
 requests = "^2.28.1"
 black = "^22.6.0"
+watchfiles = "^0.16.1"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.20.0"
