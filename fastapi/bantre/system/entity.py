@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     from .user import User
 
 
-class EntitySectionLink(SQLModel, table=True):
+class EntitySectionLink(SQLModel, table=True):  # type: ignore
     entity_id: Optional[int] = Field(
         default=None, foreign_key="entity.id", primary_key=True
     )
@@ -25,7 +25,7 @@ class EntityBase(SQLModel):
     pass
 
 
-class Entity(EntityBase, table=True):
+class Entity(EntityBase, table=True):  # type: ignore
     """This is an actual database table because it has table=True"""
 
     id: Optional[int] = Field(default=None, primary_key=True)

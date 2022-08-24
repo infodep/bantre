@@ -1,8 +1,6 @@
 from datetime import datetime, timedelta
 from os import access
 
-from fastapi import APIRouter, Body, Depends, HTTPException, status, Response
-from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
 from bantre.database import Session, get_session
@@ -14,6 +12,8 @@ from bantre.util.auth import (
     create_refresh_token,
     decode_token,
 )
+from fastapi import APIRouter, Body, Depends, HTTPException, Response, status
+from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 
 
 auth_router = APIRouter()

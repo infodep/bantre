@@ -1,6 +1,9 @@
 name: Validate Pull Request
 on:
   pull_request:
+    paths:
+      - fastapi/**
+
 jobs:
   deploy:
     name: Unit tests
@@ -9,7 +12,7 @@ jobs:
       matrix:
       # add your test suites by inserting name of folder containing tests here
         function:
-          - dummy
+          - bantre
     steps:
       - uses: actions/checkout@v2
 
@@ -37,9 +40,13 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/validate-pytests-on-pr.yaml') }}
 
+      - name: Move to correct module
+        run: cd fastapi
+
       - name: Install dependencies using poetry (skipped on cache hit)
         run: poetry install
         if: steps.cached-poetry-venv.outputs.cache-hit != 'true'
 
-      - name: Test code using unit tests
-        run: PYTHONPATH=${{ matrix.function }} poetry run pytest tests/${{ matrix.function }} -m "unit"
+      - name: Test code using unit test
+        run: PYTHONPATH=${{ matrix.function }} poetry run pytest fastapi/tests/${{ matrix.function }} -m "unit"
+        # This line ensures pytests are ran from the correct directories

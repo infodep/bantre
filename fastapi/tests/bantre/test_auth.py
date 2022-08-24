@@ -1,27 +1,29 @@
-from bantre.modules.article.article_model import Article
-from bantre.system.user import User
+import pytest
 
 from sqlmodel import select
 
+from bantre.modules.article.article_model import Article
 from bantre.util.auth import get_user_by_username, verify_password
 
 from .conftest import (
-    client_fixture,
-    session_fixture,
-    admin_fixture,
     Session,
     TestClient,
     User,
-    admin_user_username,
+    admin_fixture,
     admin_user_password,
+    admin_user_username,
+    client_fixture,
+    session_fixture,
 )
 
 
+@pytest.mark.unit
 def test_admin_fixture(session: Session, admin_user: User):
     admin_user_in_db = get_user_by_username(session, admin_user_username)
     assert admin_user_in_db == admin_user
 
 
+@pytest.mark.unit
 def test_auth(session: Session, client: TestClient, admin_user: User):
     login_response = client.post(
         "/v1/auth/login",

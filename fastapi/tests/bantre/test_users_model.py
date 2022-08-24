@@ -1,8 +1,11 @@
+import pytest
+
 from bantre.system.user import User
 
 from .conftest import Session, client_fixture, session_fixture
 
 
+@pytest.mark.unit
 def test_user_orm(session: Session):
     # Create user using the orm
     post_user = User(username="bucky", email="ricky@bucky.com", password="timini")

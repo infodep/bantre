@@ -1,7 +1,6 @@
-from fastapi import APIRouter
-
 from bantre.modules.article import article_controller
 from bantre.modules.auth import auth_controller
+from fastapi import APIRouter
 
 
 # Handles "/v1/*"

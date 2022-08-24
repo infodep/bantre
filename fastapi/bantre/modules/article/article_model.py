@@ -5,7 +5,7 @@ from sqlmodel import Field, Relationship, SQLModel
 from bantre.system.entity import Entity
 
 
-class Article(SQLModel, table=True):
+class Article(SQLModel, table=True):  # type: ignore
     id: Optional[int] = Field(foreign_key="entity.id", primary_key=True, default=None)
     entity: Entity = Relationship()
     title: str

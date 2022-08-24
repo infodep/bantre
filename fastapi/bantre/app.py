@@ -1,10 +1,10 @@
 from typing import Optional
 
-from fastapi import FastAPI
 from sqlmodel import SQLModel
 
 from bantre.database import create_db_and_tables
 from bantre.modules.routes import v1_router
+from fastapi import FastAPI
 
 
 app = FastAPI()

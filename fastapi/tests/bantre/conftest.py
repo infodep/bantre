@@ -1,6 +1,5 @@
 import pytest
 
-from fastapi.testclient import TestClient
 from sqlmodel import Session, SQLModel, create_engine
 from sqlmodel.pool import StaticPool
 
@@ -8,6 +7,7 @@ from bantre.app import app
 from bantre.database import get_session
 from bantre.system.user import User
 from bantre.util.auth import hash_password
+from fastapi.testclient import TestClient
 
 
 admin_user_username: str = "admin"
